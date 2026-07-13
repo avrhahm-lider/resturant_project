@@ -12,8 +12,7 @@ export async function createOrder(body) {
         return { status: 400, data: { message: 'invalid body' } }
 
     const data = await readOrder()
-    data.sort((a, b) => a.id - b.i
-    d)
+    data.sort((a, b) => a.id - b.id)
     const lastOrder = data[data.length - 1]
     body.id = lastOrder ? lastOrder.id + 1 : 1
     body.status = 'NEW'
